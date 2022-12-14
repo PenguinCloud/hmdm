@@ -1,0 +1,5 @@
+---
+- name: Copy the war file to tomcat
+  copy:
+    src: /opt/hmdm/server/target/launcher.war
+    dest: /opt/tomcat/webapps

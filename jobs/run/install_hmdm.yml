@@ -1,0 +1,10 @@
+---
+- name: Template Install file
+  template:
+    src: templates/build-properties.j2
+    dest: /opt/hmdm/server/build.properties
+
+- name: Run command to install hmdm
+  shell:
+    chdir: /opt/hmdm
+    cmd: mvn install

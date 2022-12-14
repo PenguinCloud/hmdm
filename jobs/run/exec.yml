@@ -1,0 +1,5 @@
+---
+- name: Start apache tomcat
+  shell:
+    chdir: /opt/tomcat/bin
+    cmd: ./startup.sh

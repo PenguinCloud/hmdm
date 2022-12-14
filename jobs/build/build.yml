@@ -1,0 +1,11 @@
+- name: Install dependencies
+  include_tasks:
+    file: install_dependencies.yml
+
+- name: Clone H_MDM repo
+  include_tasks:
+    file: download_hmdm.yml
+
+- name: Install tomcat
+  include_tasks:
+    file: install_tomcat.yml

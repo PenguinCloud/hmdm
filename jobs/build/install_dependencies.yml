@@ -1,0 +1,19 @@
+---
+- name: Add php repo
+  apt_repository:
+    repo: ppa:ondrej/php
+    state: present
+
+- name: Install Dependencies required by H-mdm
+  ansible.builtin.apt:
+    name:
+      - tomcat9
+      - default-jdk
+      - aapt
+      - vim
+      - unzip
+      - net-tools
+      - maven
+      - postgresql-client
+    state: latest
+    update_cache: yes

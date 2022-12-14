@@ -1,4 +1,20 @@
 run:
   user: ptg-user
 app:
-  title: "{{ lookup('ansible.builtin.env', 'APP_TILE') }}"
+  title: "{{ lookup('ansible.builtin.env', 'APP_TITLE') }}"
+  link : "{{ lookup('ansible.builtin.env', 'APP_LINK') }}"
+
+database:
+  name: "{{ lookup('env', 'DATABASE_NAME') }}"
+  user: "{{ lookup('env', 'DATABASE_USER') }}"
+  password: "{{ lookup('env', 'DATABASE_PASSWORD') }}"
+  host: "{{ lookup('env', 'DATABASE_HOST') }}"
+  port: "{{ lookup('env', 'DATABASE_PORT') }}"
+
+cpu_count: "{{ lookup('env', 'CPU_COUNT') }}"
+
+file_limit: "{{ lookup('env', 'FILE_LIMIT') }}"
+
+tomcat:
+  link: "{{ lookup('env', 'TOMCAT_LINK') }}"
+  version: "{{ lookup('env', 'TOMCAT_VERSION') }}"
