@@ -1,4 +1,9 @@
 ---
+- name: Template tomcat users file
+  template:
+    src: templates/tomcat-users.j2
+    dest: /opt/tomcat/conf/tomcat-users.xml
+
 - name: Copy the war file to tomcat
   copy:
     src: /opt/hmdm/server/target/launcher.war

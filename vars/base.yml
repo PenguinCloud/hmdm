@@ -18,3 +18,5 @@ file_limit: "{{ lookup('env', 'FILE_LIMIT') }}"
 tomcat:
   link: "{{ lookup('env', 'TOMCAT_LINK') }}"
   version: "{{ lookup('env', 'TOMCAT_VERSION') }}"
+  admin: "{{ lookup('env', 'TOMCAT_ADMIN') }}"
+  password: "{{ lookup('env', 'TOMCAT_ADMIN_PASSWORD') }}"

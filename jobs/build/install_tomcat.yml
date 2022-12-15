@@ -4,7 +4,7 @@
     url: "{{ tomcat.link }}"
     dest: /opt
 
-- name: Extract HMDM
+- name: Extract Tomcat
   unarchive:
     src: "/opt/{{ tomcat.version }}.tar.gz"
     dest: /opt
@@ -27,7 +27,7 @@
 
 - name: Create opt/tomcat/work/files repo
   ansible.builtin.file:
-    path: opt/tomcat/work/files
+    path: /opt/tomcat/work/files
     state: directory
     owner: "{{ run.user }}"
     group: "{{ run.user }}"
