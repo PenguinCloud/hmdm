@@ -7,7 +7,7 @@
 - name: Template hmdm.xml
   template:
     src: templates/hmdm_xml.j2
-    dest: /opt/tomcat/conf/Catalina/localhost/ROOT.xml
+    dest: /opt/tomcat/conf/Catalina/localhost/hmdm.xml
 
 - name: Template init file
   template:

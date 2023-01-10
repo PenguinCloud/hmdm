@@ -5,4 +5,4 @@
     dest: /opt/tomcat/webapps
 
 - name: Rename hmdm war file to root.war
-  shell: "mv /opt/tomcat/webapps/{{ app.version}}.war /opt/tomcat/webapps/ROOT.war"
+  shell: "mv /opt/tomcat/webapps/{{ app.version}}.war /opt/tomcat/webapps/hmdm.war"
