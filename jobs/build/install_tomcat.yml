@@ -14,39 +14,23 @@
     path: "/opt/{{ tomcat.version }}.tar.gz"
     state: absent
 
-- name: Rename Timetrex repo
+- name: Rename Tomcat repo
   shell: "mv /opt/{{ tomcat.version }} /opt/tomcat"
-
-- name: Recursively change ownership of nextcloud directory
-  ansible.builtin.file:
-    path: /opt/tomcat
-    state: directory
-    recurse: yes
-    owner: "{{ run.user }}"
-    group: "{{ run.user }}"
 
 - name: Create opt/tomcat/work/files repo
   ansible.builtin.file:
     path: /opt/tomcat/work/files
     state: directory
-    owner: "{{ run.user }}"
-    group: "{{ run.user }}"
-    mode: '775'
 
-- name: Create /opt/tomcat/work/plugins repo
+- name: Create opt/tomcat/work/plugins repo
   ansible.builtin.file:
     path: /opt/tomcat/work/plugins
     state: directory
-    owner: "{{ run.user }}"
-    group: "{{ run.user }}"
-    mode: '775'
 
-- name: Create /opt/tomcat/work/files/initialized.txt
+- name: Create /opt/tomcat/conf/Catalina/localhost
   ansible.builtin.file:
-    path: /opt/tomcat/work/files/initialized.txt
-    state: touch
-    owner: "{{ run.user }}"
-    group: "{{ run.user }}"
-    mode: '775'
+    path: /opt/tomcat/conf/Catalina/localhost
+    state: directory
+
 
 

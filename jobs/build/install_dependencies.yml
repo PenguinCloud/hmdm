@@ -5,10 +5,7 @@
       - tomcat9
       - default-jdk
       - aapt
-      - vim
-      - unzip
-      - net-tools
-      - maven
+      - wget
       - postgresql-client
       - python3-psycopg2
     state: latest

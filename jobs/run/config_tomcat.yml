@@ -1,10 +1,15 @@
 ---
-- name: Template tomcat users file
+- name: Template log4j hmdm
   template:
-    src: templates/tomcat-users.j2
-    dest: /opt/tomcat/conf/tomcat-users.xml
+    src: templates/log4j-hmdm.j2
+    dest: /opt/tomcat/work/log4j-hmdm.xml
 
-- name: Copy the war file to tomcat
-  copy:
-    src: /opt/hmdm/server/target/launcher.war
-    dest: /opt/tomcat/webapps
+- name: Template hmdm.xml
+  template:
+    src: templates/hmdm_xml.j2
+    dest: /opt/tomcat/conf/Catalina/localhost/ROOT.xml
+
+- name: Template init file
+  template:
+    src: templates/init1sql.j2
+    dest: /opt/tomcat/work/init.sql

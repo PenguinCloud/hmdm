@@ -1,18 +1,9 @@
 ---
-# Before I run the install I need to make sure the database is fully started up
-- name: Run database test
-  include_tasks:
-    file: jobs/tests/database_test.yml
-
-- name: Install hmdm
-  include_tasks:
-    file: install_hmdm.yml
-
 - name: Configure tomcat
   include_tasks:
     file: config_tomcat.yml
 
-#- name: Congigure php-fpm
-#  include_tasks:
-#    file: config_phpfpm.yml
-#
+# Before I run the install I need to make sure the database is fully started up
+- name: Run database test
+  include_tasks:
+    file: jobs/tests/database_test.yml

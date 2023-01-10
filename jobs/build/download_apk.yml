@@ -1,0 +1,20 @@
+---
+- name: Download client version
+  ansible.builtin.get_url:
+    url: "https://h-mdm.com/files/hmdm-{{ client_version }}-{{ hmdm_variant }}.apk"
+    dest: /opt/tomcat/work/files
+
+- name: Download pager apk
+  ansible.builtin.get_url:
+    url: "{{ pager_apk_link }}"
+    dest: /opt/tomcat/work/files
+
+- name: Download phone proxy apk
+  ansible.builtin.get_url:
+    url: "{{ phone_proxy_link }}"
+    dest: /opt/tomcat/work/files
+
+- name: Download launcher restarter link apk
+  ansible.builtin.get_url:
+    url: "{{ launcher_restarter_link }}"
+    dest: /opt/tomcat/work/files

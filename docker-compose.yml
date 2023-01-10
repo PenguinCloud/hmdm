@@ -1,17 +1,21 @@
 ---
 version: "2.4"
 services:
-  postgres:
-    image: 'bitnami/postgresql:latest'
+  database:
+    image: 'postgres:latest'
     environment:
       - POSTGRES_DB=hmdm
-      - POSTGRES_PASSWORD=p@ssword
+      - POSTGRES_PASSWORD=P@ssWord
       - POSTGRES_USER=hmdm
+    ports:
+      - 5432:5432
+    volumes:
+      - ./volumes/work:/opt/tomcat/work
     networks:
       - hmdm
 
   h-mdm:
-    image: penguintech/h-mdm
+    image: 'penguintech/h-mdm'
     build: .
     ports:
       - 8080:8080

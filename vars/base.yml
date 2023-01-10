@@ -1,8 +1,15 @@
 run:
-  user: ptg-user
+  user: tomcat
 app:
   title: "{{ lookup('ansible.builtin.env', 'APP_TITLE') }}"
   link : "{{ lookup('ansible.builtin.env', 'APP_LINK') }}"
+  version: "{{ lookup('ansible.builtin.env', 'APP_VERSION') }}"
+
+pager_apk_link: "{{ lookup('ansible.builtin.env', 'PAGER_APK_LINK') }}"
+
+phone_proxy_link: "{{ lookup('ansible.builtin.env', 'PHONE_PROXY_LINK') }}"
+
+launcher_restarter_link: "{{ lookup('ansible.builtin.env', 'LAUNCHER_RESTARTER_LINK') }}"
 
 database:
   name: "{{ lookup('env', 'DATABASE_NAME') }}"
@@ -11,12 +18,15 @@ database:
   host: "{{ lookup('env', 'DATABASE_HOST') }}"
   port: "{{ lookup('env', 'DATABASE_PORT') }}"
 
-cpu_count: "{{ lookup('env', 'CPU_COUNT') }}"
-
-file_limit: "{{ lookup('env', 'FILE_LIMIT') }}"
-
 tomcat:
   link: "{{ lookup('env', 'TOMCAT_LINK') }}"
   version: "{{ lookup('env', 'TOMCAT_VERSION') }}"
-  admin: "{{ lookup('env', 'TOMCAT_ADMIN') }}"
-  password: "{{ lookup('env', 'TOMCAT_ADMIN_PASSWORD') }}"
+
+admin_email: "{{ lookup('env', 'ADMIN_EMAIL') }}"
+
+url: "{{ lookup('env', 'URL') }}"
+
+protocol: "{{ lookup('env', 'PROTOCOL') }}"
+
+client_version: "5.14"
+hmdm_variant: "os"
