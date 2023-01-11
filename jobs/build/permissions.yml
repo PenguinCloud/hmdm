@@ -6,5 +6,4 @@
     recurse: yes
     owner: "{{ run.user }}"
     group: "{{ run.user }}"
-    mode: '775'
 

@@ -1,5 +1,6 @@
 run:
   user: tomcat
+
 app:
   title: "{{ lookup('ansible.builtin.env', 'APP_TITLE') }}"
   link : "{{ lookup('ansible.builtin.env', 'APP_LINK') }}"

@@ -2,7 +2,7 @@
 version: "2.4"
 services:
   database:
-    image: 'postgres:latest'
+    image: 'bitnami/postgresql:latest'
     environment:
       - POSTGRES_DB=hmdm
       - POSTGRES_PASSWORD=P@ssWord

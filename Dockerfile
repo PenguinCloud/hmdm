@@ -34,9 +34,8 @@ ENV APP_VERSION="hmdm-5.12.1"
 ENV URL="localhost"
 ENV PROTOCOL="http"
 
-EXPOSE 8080 31000
 # Switch to non-root user
-# USER tomcat
+USER tomcat
 
 # Entrypoint time (aka runtime)
 ENTRYPOINT ["/bin/bash","/opt/manager/entrypoint.sh"]

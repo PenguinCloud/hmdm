@@ -1,6 +1,7 @@
-#- name: Add user
-#  include_tasks:
-#    file: add_user.yml
+---
+- name: Add user
+  include_tasks:
+    file: add_user.yml
 
 - name: Install dependencies
   include_tasks:
@@ -18,6 +19,6 @@
   include_tasks:
     file: download_apk.yml
 
-#- name: Set correct permissions
-#  include_tasks:
-#    file: permissions.yml
+- name: Set correct permissions
+  include_tasks:
+    file: permissions.yml
