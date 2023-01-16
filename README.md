@@ -1,6 +1,11 @@
-# Project Overview
-<< This is a template. Copy this templated repository to make new projects. Once done, add a 1 paragraph introduction / elevator speech about your project.
->>
+# Headwind MDM
+<<  
+>>Scaling of your business requires proper management. The MDM software is a smart manager of your enterprise tablets, smartphones, kiosks, and digital signage systems. It?s particularly useful to manage unattended devices, replacing hours of maintenance work by a few mouse clicks!
+> Group-based policy management forces hundreds of devices to work in the same way, thus making business processes clearer and easier.
+>Device status control makes it easy to find problems with enterprise devices and take actions to fix them in a timely manner.
+>Remote support simplifies the IT manager?s work to resolve issues and correct faults.
+> 
+
 # Why this image vs others
 ## Built in self testing and healing
 All PTG builds have unit and dynamic tests as part of the build of their images, as well as during runtime to ensure the system keeps running as expected. If the system falls out of bounds of the test, the images have some self healing capabilities fix common minor problems.
