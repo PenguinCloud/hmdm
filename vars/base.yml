@@ -19,6 +19,16 @@ database:
   host: "{{ lookup('env', 'DATABASE_HOST') }}"
   port: "{{ lookup('env', 'DATABASE_PORT') }}"
 
+organization:
+  name: "{{ lookup('env', 'ORGANIZATION_NAME') }}"
+  country: "{{ lookup('env', 'ORGANIZATION_COUNTRY') }}"
+  email: "{{ lookup('env', 'ORGANIZATION_EMAIL') }}"
+  hostname: "{{ lookup('env', 'ORGANISATION_HOSTNAME') }}"
+
+ssl_cert: "{{ lookup('env', 'SSL_CERT') }}"
+
+server_address: "{{ lookup('env', 'SERVER_ADDRESS') }}"
+
 tomcat:
   link: "{{ lookup('env', 'TOMCAT_LINK') }}"
   version: "{{ lookup('env', 'TOMCAT_VERSION') }}"

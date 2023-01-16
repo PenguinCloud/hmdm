@@ -7,6 +7,9 @@
       - aapt
       - wget
       - postgresql-client
+      - openssl
+      - libapr1
+      - libaprutil1
       - python3-psycopg2
     state: latest
     update_cache: yes

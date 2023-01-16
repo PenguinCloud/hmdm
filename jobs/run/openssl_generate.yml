@@ -1,0 +1,38 @@
+---
+- name: Generate an OpenSSL private key with a different algorithm (ECC)
+  community.crypto.openssl_privatekey:
+    path: "/opt/key_ssl/private/{{ server_address }}.pem"
+    type: RSA
+    curve: secp384r1
+
+- name: Set ssl.key variable if ssl.key == nokey
+  set_fact:
+    ssl_key: "/opt/key_ssl/private/{{ server_address }}.pem"
+
+- name: Generate an OpenSSL Certificate Signing Request with Subject information
+  community.crypto.openssl_csr:
+    path: "/opt/key_ssl/csr/{{ server_address }}.csr"
+    privatekey_path: "{{ ssl_key }}"
+    country_name: "{{ organization.country }}"
+    organization_name: "{{ organization.name }}"
+    email_address: "{{ organization.email }}"
+    common_name: "{{ server_address }}"
+
+- name: Generate a Self Signed OpenSSL certificate
+  community.crypto.x509_certificate:
+    path: "/opt/key_ssl/crt/{{ server_address }}.crt"
+    privatekey_path: "{{ ssl_key }}"
+    csr_path: "/opt/key_ssl/csr/{{ server_address }}.csr"
+    provider: selfsigned
+
+- name: Set ssl.cert variable if ssl.cert == nocert
+  set_fact:
+    ssl_cert: "/opt/key_ssl/crt/{{ server_address }}.crt"
+
+- name: Create a keystore for the given certificate/private key pair (with files on target host)
+  community.general.java_keystore:
+    name: tomcat
+    certificate_path: "{{ ssl_cert }}"
+    private_key_path: "{{ ssl_key }}"
+    password: password
+    dest: /opt/key_ssl/keystore/hmdm.jks

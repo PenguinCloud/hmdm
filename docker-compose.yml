@@ -20,6 +20,7 @@ services:
     ports:
       - 8080:8080
       - 31000:31000
+      - 8443:8443
     networks:
       - hmdm
     healthcheck:

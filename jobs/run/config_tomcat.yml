@@ -1,4 +1,10 @@
 ---
+- name: Template server_xml
+  template:
+    src: templates/server_xml.j2
+    dest: /opt/tomcat/conf/server.xml
+    force: yes
+
 - name: Template log4j hmdm
   template:
     src: templates/log4j-hmdm.j2

@@ -22,3 +22,7 @@
 - name: Set correct permissions
   include_tasks:
     file: permissions.yml
+
+- name: Create open ssl certificate repo's
+  include_tasks:
+    file: create_cert_directories.yml
