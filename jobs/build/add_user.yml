@@ -1,0 +1,8 @@
+- name: Add Tomcat as a Group
+  group:
+    name: tomcat
+
+- name: Add Tomcat as a User
+  user:
+    name: tomcat
+    group: tomcat

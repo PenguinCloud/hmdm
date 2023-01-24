@@ -1,0 +1,14 @@
+---
+- name: Generate SSL certificate
+  include_tasks:
+    file: openssl_generate.yml
+  when: ssl_cert == "open"
+
+- name: Configure tomcat
+  include_tasks:
+    file: config_tomcat.yml
+
+# Before I start up tomcat I need to run the database test
+- name: Run database test
+  include_tasks:
+    file: jobs/tests/database_test.yml

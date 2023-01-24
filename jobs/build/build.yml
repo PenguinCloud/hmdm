@@ -1,0 +1,28 @@
+---
+- name: Add user
+  include_tasks:
+    file: add_user.yml
+
+- name: Install dependencies
+  include_tasks:
+    file: install_dependencies.yml
+
+- name: Install tomcat
+  include_tasks:
+    file: install_tomcat.yml
+
+- name: Download war file
+  include_tasks:
+    file: download_hmdm.yml
+
+- name: Download apk files
+  include_tasks:
+    file: download_apk.yml
+
+- name: Set correct permissions
+  include_tasks:
+    file: permissions.yml
+
+- name: Create open ssl certificate repo's
+  include_tasks:
+    file: create_cert_directories.yml

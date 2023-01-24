@@ -1,5 +1,34 @@
 ---
 version: "2.4"
 services:
-  app:
-    image: penguintech/core-ansible
+  database:
+    image: 'bitnami/postgresql:latest'
+    environment:
+      - POSTGRES_DB=hmdm
+      - POSTGRES_PASSWORD=P@ssWord
+      - POSTGRES_USER=hmdm
+    ports:
+      - 5432:5432
+    volumes:
+      - ./volumes/work:/opt/tomcat/work
+    networks:
+      - hmdm
+
+  h-mdm:
+    image: 'penguintech/h-mdm'
+    build: .
+    ports:
+      - 8080:8080
+      - 31000:31000
+      - 8443:8443
+    networks:
+      - hmdm
+    healthcheck:
+      test: ["CMD", "ansible-playbook", "entrypoint.yml", "--tag", "test"]
+      interval: 5m
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+
+networks:
+  hmdm:

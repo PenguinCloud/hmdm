@@ -1,4 +1,43 @@
 run:
-  user: ptg-user
+  user: tomcat
+
 app:
-  title: "{{ lookup('ansible.builtin.env', 'APP_TILE') }}"
+  title: "{{ lookup('ansible.builtin.env', 'APP_TITLE') }}"
+  link : "{{ lookup('ansible.builtin.env', 'APP_LINK') }}"
+  version: "{{ lookup('ansible.builtin.env', 'APP_VERSION') }}"
+
+pager_apk_link: "{{ lookup('ansible.builtin.env', 'PAGER_APK_LINK') }}"
+
+phone_proxy_link: "{{ lookup('ansible.builtin.env', 'PHONE_PROXY_LINK') }}"
+
+launcher_restarter_link: "{{ lookup('ansible.builtin.env', 'LAUNCHER_RESTARTER_LINK') }}"
+
+database:
+  name: "{{ lookup('env', 'DATABASE_NAME') }}"
+  user: "{{ lookup('env', 'DATABASE_USER') }}"
+  password: "{{ lookup('env', 'DATABASE_PASSWORD') }}"
+  host: "{{ lookup('env', 'DATABASE_HOST') }}"
+  port: "{{ lookup('env', 'DATABASE_PORT') }}"
+
+organization:
+  name: "{{ lookup('env', 'ORGANIZATION_NAME') }}"
+  country: "{{ lookup('env', 'ORGANIZATION_COUNTRY') }}"
+  email: "{{ lookup('env', 'ORGANIZATION_EMAIL') }}"
+  hostname: "{{ lookup('env', 'ORGANISATION_HOSTNAME') }}"
+
+ssl_cert: "{{ lookup('env', 'SSL_CERT') }}"
+
+server_address: "{{ lookup('env', 'SERVER_ADDRESS') }}"
+
+tomcat:
+  link: "{{ lookup('env', 'TOMCAT_LINK') }}"
+  version: "{{ lookup('env', 'TOMCAT_VERSION') }}"
+
+admin_email: "{{ lookup('env', 'ADMIN_EMAIL') }}"
+
+url: "{{ lookup('env', 'URL') }}"
+
+protocol: "{{ lookup('env', 'PROTOCOL') }}"
+
+client_version: "5.14"
+hmdm_variant: "os"

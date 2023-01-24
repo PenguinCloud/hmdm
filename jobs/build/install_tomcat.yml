@@ -1,0 +1,36 @@
+---
+- name: Download Tomcat
+  ansible.builtin.get_url:
+    url: "{{ tomcat.link }}"
+    dest: /opt
+
+- name: Extract Tomcat
+  unarchive:
+    src: "/opt/{{ tomcat.version }}.tar.gz"
+    dest: /opt
+
+- name: Delete HMDM zip file
+  file:
+    path: "/opt/{{ tomcat.version }}.tar.gz"
+    state: absent
+
+- name: Rename Tomcat repo
+  shell: "mv /opt/{{ tomcat.version }} /opt/tomcat"
+
+- name: Create opt/tomcat/work/files repo
+  ansible.builtin.file:
+    path: /opt/tomcat/work/files
+    state: directory
+
+- name: Create opt/tomcat/work/plugins repo
+  ansible.builtin.file:
+    path: /opt/tomcat/work/plugins
+    state: directory
+
+- name: Create /opt/tomcat/conf/Catalina/localhost
+  ansible.builtin.file:
+    path: /opt/tomcat/conf/Catalina/localhost
+    state: directory
+
+
+
